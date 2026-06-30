@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex - Enciclopédia Pokémon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-pokeball"></i>
+                    <span>Pokédex</span>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="favorites-toggle" id="favoritesToggle" aria-label="Ver favoritos">
+                        <i class="fas fa-star"></i>
+                        <span class="favorites-count" id="favoritesCount">0</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Buscar Pokémon por nome ou número...">
+                    <button id="searchBtn" class="search-btn">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="search-filters">
+                    <select id="typeFilter" class="filter-select">
+                        <option value="">Todos os Tipos</option>
+                        <option value="normal">Normal</option>
+                        <option value="fire">Fogo</option>
+                        <option value="water">Água</option>
+                        <option value="grass">Planta</option>
+                        <option value="electric">Elétrico</option>
+                        <option value="ice">Gelo</option>
+                        <option value="fighting">Lutador</option>
+                        <option value="poison">Veneno</option>
+                        <option value="ground">Terra</option>
+                        <option value="flying">Voador</option>
+                        <option value="psychic">Psíquico</option>
+                        <option value="bug">Inseto</option>
+                        <option value="rock">Pedra</option>
+                        <option value="ghost">Fantasma</option>
+                        <option value="dark">Sombrio</option>
+                        <option value="dragon">Dragão</option>
+                        <option value="steel">Aço</option>
+                        <option value="fairy">Fada</option>
+                    </select>
+                    <select id="sortFilter" class="filter-select">
+                        <option value="id">Número</option>
+                        <option value="name">Nome</option>
+                        <option value="weight">Peso</option>
+                        <option value="height">Altura</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Pokémon Grid -->
+            <div class="pokemon-grid" id="pokemonGrid">
+                <!-- Cards serão gerados dinamicamente -->
+            </div>
+
+            <!-- Loading -->
+            <div class="loading" id="loading">
+                <div class="pokeball-loader"></div>
+                <p>Carregando Pokémon...</p>
+            </div>
+
+            <!-- Load More -->
+            <div class="load-more-container">
+                <button id="loadMoreBtn" class="load-more-btn">
+                    <i class="fas fa-plus"></i>
+                    Carregar Mais
+                </button>
+            </div>
+        </main>
+
+        <!-- Pokémon Detail Modal -->
+        <div class="modal" id="pokemonModal">
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="modal-body" id="modalBody">
+                    <!-- Conteúdo será gerado dinamicamente -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Favorites Modal -->
+        <div class="modal" id="favoritesModal">
+            <div class="modal-content modal-favorites">
+                <div class="modal-header">
+                    <h2><i class="fas fa-star" style="color: #ffd700;"></i> Pokémon Favoritos</h2>
+                    <button class="modal-close" id="favoritesClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="favoritesBody">
+                    <div class="favorites-grid" id="favoritesGrid">
+                        <!-- Favoritos serão gerados dinamicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/pokedex.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
